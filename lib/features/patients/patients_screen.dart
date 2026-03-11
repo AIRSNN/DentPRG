@@ -172,6 +172,11 @@ class PatientsScreen extends StatelessWidget {
                     return _PatientRow(data: _patients[index]);
                   },
                 ),
+                const SizedBox(height: 18),
+                _PatientsPagination(
+                  currentPage: 2,
+                  totalPages: 26,
+                ),
               ],
             ),
           ),
@@ -189,6 +194,187 @@ class PatientsScreen extends StatelessWidget {
         label,
         style: theme.textTheme.labelMedium?.copyWith(
           fontWeight: FontWeight.w700,
+        ),
+      ),
+    );
+  }
+}
+
+class _PatientsPagination extends StatelessWidget {
+  const _PatientsPagination({
+    required this.currentPage,
+    required this.totalPages,
+  });
+
+  final int currentPage;
+  final int totalPages;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+    final surfaceTheme =
+        theme.extension<AppSurfaceTheme>() ?? AppSurfaceTheme.light();
+
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+      decoration: BoxDecoration(
+        color: surfaceTheme.baseColor.withValues(alpha: 0.3),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Row(
+        children: [
+          _PaginationControl(
+            label: 'Önceki',
+            icon: Icons.chevron_left_rounded,
+            isPrimary: false,
+            onTap: () {},
+          ),
+          const SizedBox(width: 10),
+          ...List.generate(4, (index) {
+            final page = index + 1;
+            return Padding(
+              padding: const EdgeInsets.only(right: 8),
+              child: _PaginationChip(
+                label: '$page',
+                isSelected: page == currentPage,
+                onTap: () {},
+              ),
+            );
+          }),
+          Padding(
+            padding: const EdgeInsets.only(right: 8),
+            child: Text(
+              '...',
+              style: theme.textTheme.labelLarge,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 8),
+            child: _PaginationChip(
+              label: '$totalPages',
+              isSelected: false,
+              onTap: () {},
+            ),
+          ),
+          const Spacer(),
+          Text(
+            'Sayfa $currentPage / $totalPages',
+            style: theme.textTheme.bodySmall?.copyWith(
+              color: colorScheme.primary,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+          const SizedBox(width: 12),
+          _PaginationControl(
+            label: 'Sonraki',
+            icon: Icons.chevron_right_rounded,
+            isPrimary: true,
+            onTap: () {},
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _PaginationControl extends StatelessWidget {
+  const _PaginationControl({
+    required this.label,
+    required this.icon,
+    required this.isPrimary,
+    required this.onTap,
+  });
+
+  final String label;
+  final IconData icon;
+  final bool isPrimary;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+    final surfaceTheme =
+        theme.extension<AppSurfaceTheme>() ?? AppSurfaceTheme.light();
+
+    return InkWell(
+      borderRadius: BorderRadius.circular(16),
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+        decoration: BoxDecoration(
+          color: isPrimary
+              ? colorScheme.primary.withValues(alpha: 0.14)
+              : surfaceTheme.cardColor.withValues(alpha: 0.88),
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(
+            color: isPrimary
+                ? colorScheme.primary.withValues(alpha: 0.16)
+                : surfaceTheme.borderColor,
+          ),
+        ),
+        child: Row(
+          children: [
+            Icon(
+              icon,
+              size: 16,
+              color: isPrimary ? colorScheme.primary : colorScheme.onSurface,
+            ),
+            const SizedBox(width: 6),
+            Text(
+              label,
+              style: theme.textTheme.labelLarge?.copyWith(
+                color: isPrimary ? colorScheme.primary : colorScheme.onSurface,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _PaginationChip extends StatelessWidget {
+  const _PaginationChip({
+    required this.label,
+    required this.isSelected,
+    required this.onTap,
+  });
+
+  final String label;
+  final bool isSelected;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+    final surfaceTheme =
+        theme.extension<AppSurfaceTheme>() ?? AppSurfaceTheme.light();
+
+    return InkWell(
+      borderRadius: BorderRadius.circular(14),
+      onTap: onTap,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 180),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        decoration: BoxDecoration(
+          color: isSelected
+              ? colorScheme.primary
+              : surfaceTheme.cardColor.withValues(alpha: 0.88),
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(
+            color: isSelected
+                ? colorScheme.primary.withValues(alpha: 0.2)
+                : surfaceTheme.borderColor,
+          ),
+        ),
+        child: Text(
+          label,
+          style: theme.textTheme.labelLarge?.copyWith(
+            color: isSelected ? colorScheme.onPrimary : colorScheme.onSurface,
+          ),
         ),
       ),
     );

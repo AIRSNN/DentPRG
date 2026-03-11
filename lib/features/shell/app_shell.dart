@@ -4,7 +4,10 @@ import '../../core/theme/theme.dart';
 import '../../shared/widgets/soft_card.dart';
 import '../appointments/appointments_screen.dart';
 import '../dashboard/dashboard_screen.dart';
+import '../finance/finance_screen.dart';
 import '../patients/patients_screen.dart';
+import '../settings/settings_screen.dart';
+import '../treatments/treatments_screen.dart';
 import 'shell_section.dart';
 import 'widgets/shell_sidebar.dart';
 import 'widgets/shell_topbar.dart';
@@ -36,6 +39,9 @@ class _AppShellState extends State<AppShell> {
       ShellSection.dashboard => const DashboardScreen(),
       ShellSection.patients => const PatientsScreen(),
       ShellSection.appointments => const AppointmentsScreen(),
+      ShellSection.treatments => const TreatmentsScreen(),
+      ShellSection.finance => const FinanceScreen(),
+      ShellSection.settings => const SettingsScreen(),
     };
 
     return Padding(

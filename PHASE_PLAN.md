@@ -16,12 +16,12 @@ Bu belge proje ilerleyisinin resmi yol haritasidir. Her faz tamamlandiginda chec
   Randevu listesi, durum etiketleri, gun/hafta akis mantigi ve takvimle uyumlu duzen
 - [x] Faz 6: Takvim ve Planlama Deneyimi
   Masaustu odakli takvim yerlesimi, secim durumlari ve planlama kartlari
-- [ ] Faz 7: Tedavi Plani ve Klinik Surec Kartlari
+- [x] Faz 7: Tedavi Plani ve Klinik Surec Kartlari
   Tedavi asamalari, ozet bloklari ve hasta surecini anlatan bilgi mimarisi
-- [ ] Faz 8: Finans / Odeme Ozeti
+- [x] Faz 8: Finans / Odeme Ozeti
   Gelir ozetleri, bekleyen odemeler, durum rozetleri ve yonetici bakis acisi
-- [ ] Faz 9: Bildirimler ve Kucuk Yardimci Paneller
-  Hatirlaticilar, mini durum panelleri ve dikkat gerektiren alanlar
+- [x] Faz 9: Ayarlar Modulu
+  Klinik profili, bildirimler ve entegrasyon tercihleri
 - [ ] Faz 10: Ayarlar ve Klinik Profili
   Marka bilgileri, klinik bilgileri, tercihler ve sunum amacli ayar ekranlari
 - [ ] Faz 11: Tema Parlatma ve Mikro Etkilesimler

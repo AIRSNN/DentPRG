@@ -39,14 +39,19 @@ class ShellSidebar extends StatelessWidget {
     _SidebarItemData(
       label: 'Tedaviler',
       icon: Icons.medical_services_rounded,
+      section: ShellSection.treatments,
+      badgeCount: 5,
     ),
     _SidebarItemData(
       label: 'Finans/Muhasebe',
       icon: Icons.account_balance_wallet_rounded,
+      section: ShellSection.finance,
+      badgeCount: 6,
     ),
     _SidebarItemData(
       label: 'Ayarlar',
       icon: Icons.settings_rounded,
+      section: ShellSection.settings,
     ),
   ];
 
