@@ -14,7 +14,7 @@ Bu belge proje ilerleyisinin resmi yol haritasidir. Her faz tamamlandiginda chec
   Hasta listeleme, arama alani, hasta detay karti ve mock veri akisi
 - [x] Faz 5: Randevular Modulu
   Randevu listesi, durum etiketleri, gun/hafta akis mantigi ve takvimle uyumlu duzen
-- [ ] Faz 6: Takvim ve Planlama Deneyimi
+- [x] Faz 6: Takvim ve Planlama Deneyimi
   Masaustu odakli takvim yerlesimi, secim durumlari ve planlama kartlari
 - [ ] Faz 7: Tedavi Plani ve Klinik Surec Kartlari
   Tedavi asamalari, ozet bloklari ve hasta surecini anlatan bilgi mimarisi
